@@ -47,7 +47,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+                    // Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
+                    Log.d(TAG, "Element " + getBindingAdapterPosition() + " clicked.");
                 }
             });
             textView = v.findViewById(R.id.textView);

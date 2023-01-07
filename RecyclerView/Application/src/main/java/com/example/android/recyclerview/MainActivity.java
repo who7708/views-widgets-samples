@@ -83,7 +83,8 @@ public class MainActivity extends SampleActivityBase {
             } else {
                 output.setDisplayedChild(0);
             }
-            supportInvalidateOptionsMenu();
+            // supportInvalidateOptionsMenu();
+            invalidateOptionsMenu();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -104,6 +105,7 @@ public class MainActivity extends SampleActivityBase {
         // On screen logging via a fragment with a TextView.
         LogFragment logFragment = (LogFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.log_fragment);
+        assert logFragment != null;
         msgFilter.setNext(logFragment.getLogView());
 
         Log.i(TAG, "Ready");
