@@ -16,12 +16,12 @@
 
 package com.example.android.recyclerview;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.common.logger.Log;
 
@@ -85,7 +85,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        Log.d(TAG, "Element " + position + " set.");
+        Log.d(TAG, "Element " + position + " set." + " " + viewHolder.hashCode());
 
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
