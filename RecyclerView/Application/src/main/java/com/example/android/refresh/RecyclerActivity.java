@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.recyclerview.R;
+import com.example.android.recyclerview.databinding.ActivityRecyclerBinding;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,8 @@ public class RecyclerActivity extends AppCompatActivity {
     private RecyclerView rv;
 
     RecyclerAdapter adapter;
+
+    private ActivityRecyclerBinding binding;
 
     private ArrayList<String> arrayList = new ArrayList<>();
 
