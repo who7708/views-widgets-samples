@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.android.recyclerview.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * RecycleView的Adapter
  */
-public class RvAdapter1 extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements
         View.OnClickListener {
     private static final int ITEM_FOOTER = 0x1;
 
@@ -25,18 +26,18 @@ public class RvAdapter1 extends RecyclerView.Adapter<RecyclerView.ViewHolder> im
 
     private RecyclerView recyclerView;
 
-    private ArrayList<String> mList;
+    private List<String> dataList;
 
-    public RvAdapter1() {
+    public RecyclerAdapter() {
     }
 
-    public RvAdapter1(Context mContext, ArrayList<String> mList) {
+    public RecyclerAdapter(Context mContext, ArrayList<String> dataList) {
         this.mContext = mContext;
-        this.mList = mList;
+        this.dataList = dataList;
     }
 
-    public void setmList(ArrayList<String> mList) {
-        this.mList = mList;
+    public void setDataList(ArrayList<String> dataList) {
+        this.dataList = dataList;
     }
 
     /**
@@ -52,7 +53,7 @@ public class RvAdapter1 extends RecyclerView.Adapter<RecyclerView.ViewHolder> im
         RecyclerView.ViewHolder vh = null;
         switch (viewType) {
             case ITEM_DATA:
-                view = LayoutInflater.from(mContext).inflate(R.layout.test_item, null);
+                view = LayoutInflater.from(mContext).inflate(R.layout.recycler_item, null);
                 view.setOnClickListener(this);
                 vh = new DataViewHolder(view);
                 //使用代码设置宽高（xml布局设置无效时）
@@ -61,7 +62,7 @@ public class RvAdapter1 extends RecyclerView.Adapter<RecyclerView.ViewHolder> im
                         ViewGroup.LayoutParams.WRAP_CONTENT));
                 break;
             case ITEM_FOOTER:
-                view = LayoutInflater.from(mContext).inflate(R.layout.test_item_footer, null);
+                view = LayoutInflater.from(mContext).inflate(R.layout.recycler_item_footer, null);
                 //使用代码设置宽高（xml布局设置无效时）
                 vh = new FooterViewHolder(view);
                 view.setLayoutParams(new ViewGroup.LayoutParams(
@@ -98,7 +99,7 @@ public class RvAdapter1 extends RecyclerView.Adapter<RecyclerView.ViewHolder> im
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof DataViewHolder) {
             DataViewHolder dataViewHolder = (DataViewHolder) holder;
-            dataViewHolder.tv_data.setText(mList.get(position));
+            dataViewHolder.tv_data.setText(dataList.get(position));
         } else if (holder instanceof FooterViewHolder) {
 
         }
@@ -111,7 +112,7 @@ public class RvAdapter1 extends RecyclerView.Adapter<RecyclerView.ViewHolder> im
      */
     @Override
     public int getItemCount() {
-        return mList.size() + 1;
+        return dataList.size() + 1;
     }
 
     @Override
@@ -120,7 +121,7 @@ public class RvAdapter1 extends RecyclerView.Adapter<RecyclerView.ViewHolder> im
         int position = recyclerView.getChildAdapterPosition(view);
         //程序执行到此，会去执行具体实现的onItemClick()方法
         if (onItemClickListener != null) {
-            onItemClickListener.onItemClick(recyclerView, view, position, mList.get(position));
+            onItemClickListener.onItemClick(recyclerView, view, position, dataList.get(position));
         }
     }
 

@@ -28,7 +28,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.example.android.refresh.Main2Activity"
+            android:name="com.example.android.refresh.RecyclerActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight">
             <intent-filter>

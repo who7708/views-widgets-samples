@@ -15,12 +15,12 @@ import com.example.android.recyclerview.R;
 
 import java.util.ArrayList;
 
-public class Main2Activity extends AppCompatActivity {
+public class RecyclerActivity extends AppCompatActivity {
     private static final int UPDATE_DATA = 0x3;
 
     private RecyclerView rv;
 
-    RvAdapter1 adapter;
+    RecyclerAdapter adapter;
 
     private ArrayList<String> arrayList = new ArrayList<>();
 
@@ -30,7 +30,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_recycler);
         rv = (RecyclerView) findViewById(R.id.rv_main2);
 
         //设置布局管理器
@@ -38,11 +38,11 @@ public class Main2Activity extends AppCompatActivity {
         // rv.setLayoutManager(new GridLayoutManager(this, 4));//线性
         // rv.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL));//线性
         initData();
-        adapter = new RvAdapter1(this, arrayList);
-        adapter.setOnItemClickListener(new RvAdapter1.OnItemClickListener() {
+        adapter = new RecyclerAdapter(this, arrayList);
+        adapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(RecyclerView parent, View view, int position, String data) {
-                Toast.makeText(Main2Activity.this, data, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecyclerActivity.this, data, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -109,7 +109,7 @@ public class Main2Activity extends AppCompatActivity {
             switch (msg.what) {
                 case UPDATE_DATA:
                     arrayList = (ArrayList<String>) msg.obj;
-                    adapter.setmList(arrayList);
+                    adapter.setDataList(arrayList);
                     adapter.notifyDataSetChanged();
                     break;
             }
