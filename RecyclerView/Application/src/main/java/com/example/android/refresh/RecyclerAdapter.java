@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.recyclerview.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,12 +30,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public RecyclerAdapter() {
     }
 
-    public RecyclerAdapter(Context mContext, ArrayList<String> dataList) {
+    public RecyclerAdapter(Context mContext, List<String> dataList) {
         this.mContext = mContext;
         this.dataList = dataList;
     }
 
-    public void setDataList(ArrayList<String> dataList) {
+    public void setDataList(List<String> dataList) {
         this.dataList = dataList;
     }
 
